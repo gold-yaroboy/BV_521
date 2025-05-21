@@ -13,10 +13,16 @@ void Sort(int arr[], const int n);
 void Sort(double arr[], const int n);
 
 int Sum(int arr[], const int n);
+double Sum(double arr[], const int n);
+
 double Avg(int arr[], const int n);
+double Avg(double arr[], const int n);
 
 int MinValueIn(int arr[], const int n);
 int MaxValueIn(int arr[], const int n);
+
+double MinValueIn(double arr[], const int n);
+double MaxValueIn(double arr[], const int n);
 
 void ShiftLeft(int arr[], const int n, const int num_of_shifts);
 void ShiftRight(int arr[], const int n, const int num_of_shifts);
@@ -27,7 +33,7 @@ void main()
 	const int n = 10;
 	int arr[n] = { 0,1,2,3,4,5,6,7,8,9 };
 
-	//FillRand(arr, n);
+	FillRand(arr, n);
 	Print(arr, n);
 	Sort(arr, n);
 	Print(arr, n);
@@ -46,9 +52,13 @@ void main()
 	const int SIZE = 8;
 	double brr[SIZE];
 	FillRand(brr, SIZE);
-	//Print(brr, SIZE);
+	Print(brr, SIZE);
 	Sort(brr, SIZE);
-	//Print(brr, SIZE);
+	Print(brr, SIZE);
+	cout << "Сумма элементов массива: " << Sum(brr, SIZE) << endl;
+	cout << "Среднее-арифметическое элементов массива: " << Avg(brr, SIZE) << endl;
+	cout << "Минимальное значение в массиве: " << MinValueIn(brr, SIZE) << endl;
+	cout << "Максимальное значение в массиве: " << MaxValueIn(brr, SIZE) << endl;
 }
 
 void FillRand(int arr[], const int n, int minRand, int maxRand)
@@ -126,7 +136,21 @@ int Sum(int arr[], const int n)
 	}
 	return sum;
 }
+double Sum(double arr[], const int n)
+{
+	double sum = 0;
+	for (int i = 0; i < n; i++)
+	{
+		sum += arr[i];
+	}
+	return sum;
+}
+
 double Avg(int arr[], const int n)
+{
+	return (double)Sum(arr, n) / n;
+}
+double Avg(double arr[], const int n)
 {
 	return (double)Sum(arr, n) / n;
 }
@@ -140,9 +164,28 @@ int MinValueIn(int arr[], const int n)
 	}
 	return min;
 }
+double MinValueIn(double arr[], const int n)
+{
+	double min = arr[0];
+	for (int i = 0; i < n; i++)
+	{
+		if (arr[i] < min)min = arr[i];
+	}
+	return min;
+}
+
 int MaxValueIn(int arr[], const int n)
 {
 	int max = arr[0];
+	for (int i = 0; i < n; i++)
+	{
+		if (arr[i] > max)max = arr[i];
+	}
+	return max;
+}
+double MaxValueIn(double arr[], const int n)
+{
+	double max = arr[0];
 	for (int i = 0; i < n; i++)
 	{
 		if (arr[i] > max)max = arr[i];

@@ -2,7 +2,6 @@
 using namespace std;
 
 #define tab "\t"
-
 void FillRand(int arr[], const int n, int minRand = 0, int maxRand = 100);
 void FillRand(double arr[], const int n, int minRand = 0, int maxRand = 100);
 
@@ -30,7 +29,7 @@ void ShiftLeft(T arr[], const int n, const int num_of_shifts);
 template<typename T>
 void ShiftRight(T arr[], const int n, const int num_of_shifts);
 
-void main()
+void main(void)
 {
 	setlocale(LC_ALL, "");
 	const int n = 10;

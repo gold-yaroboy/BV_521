@@ -7,10 +7,10 @@ void FillRand(int arr[], const int n, int minRand = 0, int maxRand = 100);
 void FillRand(double arr[], const int n, int minRand = 0, int maxRand = 100);
 
 void Print(int arr[], const int n);
-void Print(double arr[], const int n);
+
 
 void Sort(int arr[], const int n);
-void Sort(double arr[], const int n);
+
 
 int Sum(int arr[], const int n);
 double Avg(int arr[], const int n);
@@ -27,7 +27,7 @@ void main()
 	const int n = 10;
 	int arr[n] = { 0,1,2,3,4,5,6,7,8,9 };
 
-	//FillRand(arr, n);
+	FillRand(arr, n);
 	Print(arr, n);
 	Sort(arr, n);
 	Print(arr, n);
@@ -46,9 +46,13 @@ void main()
 	const int SIZE = 8;
 	double brr[SIZE];
 	FillRand(brr, SIZE);
-	//Print(brr, SIZE);
+	Print(brr, SIZE);
 	Sort(brr, SIZE);
-	//Print(brr, SIZE);
+	Print(brr, SIZE);
+	cout << "Сумма элементов массива: " << Sum(brr, SIZE) << endl;
+	cout << "Среднее-арифметическое элементов массива: " << Avg(brr, SIZE) << endl;
+	cout << "Минимальное значение в массиве: " << MinValueIn(brr, SIZE) << endl;
+	cout << "Максимальное значение в массиве: " << MaxValueIn(brr, SIZE) << endl;
 }
 
 void FillRand(int arr[], const int n, int minRand, int maxRand)
@@ -68,7 +72,6 @@ void FillRand(double arr[], const int n, int minRand, int maxRand)
 		arr[i] /= 100;
 	}
 }
-
 void Print(int arr[], const int n)
 {
 	for (int i = 0; i < n; i++)
@@ -77,15 +80,6 @@ void Print(int arr[], const int n)
 	}
 	cout << endl;
 }
-void Print(double arr[], const int n)
-{
-	for (int i = 0; i < n; i++)
-	{
-		cout << arr[i] << tab;
-	}
-	cout << endl;
-}
-
 void Sort(int arr[], const int n)
 {
 	for (int i = 0; i < n; i++)
@@ -101,22 +95,6 @@ void Sort(int arr[], const int n)
 		}
 	}
 }
-void Sort(double arr[], const int n)
-{
-	for (int i = 0; i < n; i++)
-	{
-		for (int j = i + 1; j < n; j++)
-		{
-			if (arr[j] < arr[i])
-			{
-				double buffer = arr[i];
-				arr[i] = arr[j];
-				arr[j] = buffer;
-			}
-		}
-	}
-}
-
 int Sum(int arr[], const int n)
 {
 	int sum = 0;
@@ -130,7 +108,6 @@ double Avg(int arr[], const int n)
 {
 	return (double)Sum(arr, n) / n;
 }
-
 int MinValueIn(int arr[], const int n)
 {
 	int min = arr[0];
@@ -149,7 +126,6 @@ int MaxValueIn(int arr[], const int n)
 	}
 	return max;
 }
-
 void ShiftLeft(int arr[], const int n, const int num_of_shifts)
 {
 	for (int i = 0; i < num_of_shifts; i++)
